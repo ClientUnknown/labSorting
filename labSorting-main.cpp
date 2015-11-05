@@ -13,7 +13,7 @@ using std::vector;
 using std::string;
 
 #include "insertionSort.h"
-//#include "bubbleSort.h"
+#include "bubbleSort.h"
 //#include "heapsort.h"
 //#include "mergesort.h"
 //#include "quicksort.h"
@@ -56,21 +56,21 @@ int main( int argc, char* argv[]){
     vector< SortingFunction > sortingFunctionCallbacks;
     
     sortingFunctionNames.push_back( "Insert");
-    /*sortingFunctionNames.push_back( "Bubble");
-    sortingFunctionNames.push_back( "Heap");
+    sortingFunctionNames.push_back( "Bubble");
+    /*sortingFunctionNames.push_back( "Heap");
     sortingFunctionNames.push_back( "Merge");
     sortingFunctionNames.push_back( "Quick");*/
     
     sortingFunctionCallbacks.push_back( insertionSort);
-    /*sortingFunctionCallbacks.push_back( bubbleSort);
-    sortingFunctionCallbacks.push_back( heapsort);
+    sortingFunctionCallbacks.push_back( bubbleSort);
+    /*sortingFunctionCallbacks.push_back( heapsort);
     sortingFunctionCallbacks.push_back( mergesort);
     sortingFunctionCallbacks.push_back( quicksort);*/
 
     // check for command-line argument(s)
-    if( argc >= 1){
+    if( argc >= 2){
         // use command-line value as the seed
-        seed = atoi( argv[0]); 
+        seed = atoi( argv[1]); 
     }else{
         // default to the current time
         seed = time(NULL);
@@ -97,6 +97,7 @@ int main( int argc, char* argv[]){
             array     = new int[ n];
         } catch (std::bad_alloc& ba) {
             cerr << "Memory allocation error: " << ba.what() << '\n';
+            exit(1);
         }    
 
         // populate the array with random values

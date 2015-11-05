@@ -78,10 +78,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bubbleSort.cpp" />
+    <ClCompile Include="diffClocks.cpp" />
     <ClCompile Include="insertionSort.cpp" />
     <ClCompile Include="labSorting-main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bubbleSort.h" />
+    <ClInclude Include="diffClocks.h" />
     <ClInclude Include="insertionSort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

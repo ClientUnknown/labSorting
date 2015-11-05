@@ -15,15 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="insertionSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="diffClocks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="labSorting-main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="insertionSort.cpp">
+    <ClCompile Include="bubbleSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="insertionSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="diffClocks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bubbleSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

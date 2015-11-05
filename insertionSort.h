@@ -1,3 +1,9 @@
+// Muhammad Abed
+// CSCI 3110 - 002
+// Lab Sorting
+// 11/11/15
+// Header file for an insertion sort method
+
 #ifndef INSERTIONSORT_H
 #define INSERTIONSORT_H
 
