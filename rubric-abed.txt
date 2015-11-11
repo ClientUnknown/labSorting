@@ -1,0 +1,23 @@
+Points      Item
+----------  --------------------------------------------------------------
+ 10 / 10  Documentation:
+            + All source code files (.h & .cpp) include file name, author, description etc. 
+            + Functions and variables
+            + All non-trival variables are commented 
+            + All functions preceded by brief comments 
+            + Comments included before major portions of code 
+            + Functions should be no longer than 1 page
+ yes /     Compiles and runs in Visual Studio and on ranger
+ 22 / 25  Requirements met:
+ yes /     + Insection Sort
+ yes /     + Bubble Sort
+ yes /     + Heapsort
+ yes /     + Mergesort
+ yes /     + Quicksort
+ 45  / 45  Execution times
+ 20 / 20  Discussion of correlation
+ yes /     Completed rubric (estimates for each line including hours spent)
+	    
+97  /100  Total
+
+9 Approximate number of hours spent

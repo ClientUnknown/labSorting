@@ -10,13 +10,24 @@
 void bubbleSort (int array[], int size) {
 	clock_t begin, end;
 	begin = clock();
+	bool flag = true;
+	int j = 0;
+	int temp;
 
-	for (int i = size-1; i >= 1; i--) {
-		for (int j = 0; j < i; j++) {
-			if (array[j] > array[j+1])
-				std::swap(array[j], array[j+1]);
-		}
-	}
+	// Assume array unsorted to start, loop through array starting with assumption that the array is now sorted
+	// If found to be unsorted, set flag to true to indicated not sorted
+	while (flag) {
+		flag = false;
+		j++;
+		for (int i = 0; i < size - j; i++) {
+			if (array[i] > array[i+1]) {
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+				flag = true;
+			} // end if
+		} // end for
+	} // end while
 
 	end = clock();
 	std::cout << "\t" << diffClocks(end, begin);

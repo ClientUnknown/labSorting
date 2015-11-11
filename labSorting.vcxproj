@@ -80,13 +80,19 @@
   <ItemGroup>
     <ClCompile Include="bubbleSort.cpp" />
     <ClCompile Include="diffClocks.cpp" />
+    <ClCompile Include="heapsort.cpp" />
     <ClCompile Include="insertionSort.cpp" />
     <ClCompile Include="labSorting-main.cpp" />
+    <ClCompile Include="mergesort.cpp" />
+    <ClCompile Include="quicksort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bubbleSort.h" />
     <ClInclude Include="diffClocks.h" />
+    <ClInclude Include="heapsort.h" />
     <ClInclude Include="insertionSort.h" />
+    <ClInclude Include="mergesort.h" />
+    <ClInclude Include="quicksort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

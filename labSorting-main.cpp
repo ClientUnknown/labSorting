@@ -4,6 +4,8 @@
 #include <new>          // std::bad_alloc
 #include <vector>
 #include <string>
+#include <algorithm>    // std::sort
+#include <cstring>     // memcpy
 
 using std::cout;
 using std::cerr;
@@ -14,9 +16,9 @@ using std::string;
 
 #include "insertionSort.h"
 #include "bubbleSort.h"
-//#include "heapsort.h"
-//#include "mergesort.h"
-//#include "quicksort.h"
+#include "heapsort.h"
+#include "mergesort.h"
+#include "quicksort.h"
 
 // callback function that takes arguments of an int* and an int.  For example, insertionSort(int* array, int count)
 typedef void (*SortingFunction)(int*, int);
@@ -29,17 +31,23 @@ void setRandomValues(int array[], int size, time_t seed = time(NULL)){
 
     // cerr << "Unsorted array:\n";
     for( int i = 0; i < size; i++){
-        array[i] = rand() % 100;
+        array[i] = rand() % size;
         // cerr << array[i] << " ";
     }
     // cerr << endl;
 }
 
-// check for unsorted values
-void verifySort(int array[], int size){
-    for( int i = 0; i < size - 1; i++){
-        if( array[i] > array[i + 1]){
-            cerr << "ERROR: array not sorted at indices " << i << " (" << array[i] << ") and " << i + 1 << " (" << array[i + 1] << ")!\n";
+// use a library sorting algorithm to sort array
+void setAnswerKey(int array[], int size){
+    std::sort( array, array + size);
+}
+
+
+// compare the values in array and answers
+void verifySort(int array[], int answers[], int size){
+    for( int i = 0; i < size; i++){
+        if( array[i] != answers[i]){
+            cerr << "ERROR: Array not sorted at index " << i << ": (" << array[i] << " should've been " << answers[i] << ")!\n";
             exit(1);
         }
     }
@@ -50,6 +58,7 @@ int main( int argc, char* argv[]){
     int maxN = -1;     // largest array size
     int* arrayOrig; // array of random elements
     int* array;     // array of random elements (copied from arrayOrig)
+    int* answers;   // sorted array (used for verification)
     time_t seed;    // seed for random number generator
 
     vector< string> sortingFunctionNames;
@@ -57,15 +66,15 @@ int main( int argc, char* argv[]){
     
     sortingFunctionNames.push_back( "Insert");
     sortingFunctionNames.push_back( "Bubble");
-    /*sortingFunctionNames.push_back( "Heap");
+    sortingFunctionNames.push_back( "Heap");
     sortingFunctionNames.push_back( "Merge");
-    sortingFunctionNames.push_back( "Quick");*/
+    sortingFunctionNames.push_back( "Quick");
     
     sortingFunctionCallbacks.push_back( insertionSort);
     sortingFunctionCallbacks.push_back( bubbleSort);
-    /*sortingFunctionCallbacks.push_back( heapsort);
+    sortingFunctionCallbacks.push_back( heapsort);
     sortingFunctionCallbacks.push_back( mergesort);
-    sortingFunctionCallbacks.push_back( quicksort);*/
+    sortingFunctionCallbacks.push_back( quicksort);
 
     // check for command-line argument(s)
     if( argc >= 2){
@@ -95,6 +104,7 @@ int main( int argc, char* argv[]){
             // allocate memory
             arrayOrig = new int[ n];
             array     = new int[ n];
+            answers   = new int[ n];
         } catch (std::bad_alloc& ba) {
             cerr << "Memory allocation error: " << ba.what() << '\n';
             exit(1);
@@ -102,6 +112,13 @@ int main( int argc, char* argv[]){
 
         // populate the array with random values
         setRandomValues(arrayOrig, n, seed);
+
+        //
+        // Sort answers
+        //
+        // copy contents of arrayOrig into array
+        memcpy( answers, arrayOrig, n * sizeof( int));
+        setAnswerKey(answers, n);
 
         cout << n;
     
@@ -113,7 +130,7 @@ int main( int argc, char* argv[]){
             sortingFunctionCallbacks[ sortI]( array, n);  // for example, will call insertionSort(array, n)
 
             // verify that all of the values are sorted
-            verifySort( array, n);
+            verifySort( array, answers, n);
         }
         cout << endl;
 

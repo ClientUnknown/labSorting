@@ -5,7 +5,7 @@
 // Header file for a bubble sort method
 
 #include <iostream>
-#include "diffclocks.h"
+#include "diffClocks.h"
 
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H

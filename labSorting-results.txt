@@ -1,0 +1,18 @@
+Please specify the largest array size: 
+n	Insert	Bubble	Heap	Merge	Quick
+100	0	0	0	0	0
+1000	0	0.002	0.001	0	0
+10000	0.055	0.209	0.012	0.004	0.004
+100000	5.689	23.023	0.153	0.057	0.052
+
+	With the average case big Oh of bubble sort and insertion sort being O(N^2) I would've expected them to be similar in their execution times.
+However, from my understanding it seems that the bubble sort is doing more comparisons on each pass of the array than the insertion sort is.
+More specifically, bubble sort is doing N comparisons while insertion sort is doing less than N comparisons. While the best case O(N) for insertion is
+impressive it seems to lack utility in most situations, because a mostly sorted array does not seem to be a very realistic set of input.
+	While quicksort may seem quick and on par with mergesort, it's important to note that the worst case big Oh for quicksort is O(N^2), a bit worse
+than mergesort's O(N LOG N). So while they may be on the same level for a reasonable amount of output, it seems likely we would often see quicksort slowing
+down quite a bit behind mergesort as the input is in a worse state. Although with the added extra space of a mergesort, it would really come to down to a
+situational basis as to which would perform better.
+	Heapsort feels like an odd mix between a mergesort and a quicksort in terms of performance. While the average and worst cases of O(N LOG N) are good,
+it's still a little slower than a merge or quick sort. However, having an extra space of O(1) definitely seems like a good advantage to have over a mergesort,
+even if the heapsort is a little slower.
